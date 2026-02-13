@@ -4,11 +4,10 @@
     }
     to {
         transform: scale(1.25);
-
     }
 }
 
-@keyframes sparks{
+@keyframes sparks {
     from {
         opacity: 0;
     }
