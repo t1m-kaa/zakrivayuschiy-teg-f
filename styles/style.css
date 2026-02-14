@@ -1,4 +1,6 @@
 .page {
+  margin-block-start: calc(var(--primary-spacing, 25px) * 4);
+  margin-block-end: calc(var(--primary-spacing, 25px) * 4);
   font-family: var(--inter-variable-font), sans-serif;
   background-image: var(--background-gradient, #fff);
   background-size: cover;
@@ -15,11 +17,10 @@
 }
 
 .header {
-  margin-block-start: calc(var(--primary-spacing, 25px) * 4);
   margin-block-end: calc(var(--primary-spacing, 25px) * 4 - 1px);
   padding-block-start: var(--padding-header, 2rem);
   padding-block-end: var(--padding-header, 2rem);
-  font-family: var(--press-start-font), sans-serif;
+  font-family: var(--press-start-font), fantasy;
   background-color: var(--main-background-color, #fff);
 }
 
@@ -68,25 +69,25 @@
   background-color: #fff;
 }
 
-.card-item:nth-of-type(2) .card__image {
+.filter-saturate-low {
   filter: saturate(25%);
 }
-.card-item:nth-of-type(3) .card__image {
+.filter-saturate-high {
   filter: saturate(200%);
 }
-.card-item:nth-of-type(4) .card__image {
+.filter-grayscale-saturate {
   filter: grayscale(60%) saturate(200%);
 }
-.card-item:nth-of-type(5) .card__image {
+.filter-invert {
   filter: invert(80%);
 }
-.card-item:nth-of-type(6) .card__image {
+.filter-sepia {
   filter: sepia(100%);
 }
-.card-item:nth-of-type(7) .card__image {
+.filter-blur {
   filter: blur(10px);
 }
-.card-item:nth-of-type(8) .card__image {
+.filter-hue-rotate {
   filter: hue-rotate(120deg) saturate(150%) contrast(40%);
 }
 
@@ -95,7 +96,7 @@
   top: var(--primary-spacing);
   right: var(--primary-spacing);
   color: #000;
-  font-family: var(--press-start-font);
+  font-family: var(--press-start-font, fantasy);
   font-weight: 400;
   font-size: 14px;
   text-shadow:
@@ -122,10 +123,10 @@
 }
 
 .card__image {
-  background-position: center;
-  background-size: contain;
   object-fit: cover;
   object-position: center;
+  background-position: center;
+  background-size: contain;
   inline-size: 100%;
   aspect-ratio: 1 / 1;
 }
@@ -145,12 +146,14 @@
   display: flex;
   justify-content: end;
   align-items: center;
+  align-content: center;
+  gap: 5px;
   padding: var(--primary-spacing, 25px);
 }
 
 .button {
   margin: 0;
-  font-family: var(--press-start-font), sans-serif;
+  font-family: var(--press-start-font), fantasy;
   font-size: 14px;
   background-color: transparent;
 }
@@ -200,15 +203,15 @@
   margin: var(--primary-spacing, 25px);
 }
 
-.footer {
+.main-actions {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-block-start: 50px;
+  margin-block-start: calc(var(--primary-spacing, 25px) * 2);
   border: none;
 }
 
-.footer__button {
+.main-actions__button {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -223,7 +226,7 @@
   );
 }
 
-.footer__image {
+.main-actions__image {
   inline-size: clamp(21px, calc(30.465px - 0.657vw), 28px);
 }
 
@@ -238,7 +241,6 @@
   padding-inline: clamp(30px, calc(43.521px - 0.939vw), 40px);
   padding-block: 30px;
   inline-size: clamp(341px, calc(336.775px + 1.127vw), 353px);
-  min-block-size: 191px;
 }
 
 .dialog__content {
@@ -249,7 +251,7 @@
 
 .dialog__image {
   flex-shrink: 0;
-  width: 39px;
+  inline-size: 39px;
 }
 .dialog__button {
   margin-top: 30px;
@@ -258,20 +260,19 @@
 }
 
 .dialog__text {
-  font-family: var(--press-start-font);
+  font-family: var(--press-start-font, fantasy);
   font-size: 14px;
   line-height: 1.5;
 }
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 @media (width>=980px) {
   .card__title {
     flex-direction: row;
   }
-  .footer__button {
+  .main-actions__button {
     flex-direction: row;
   }
 }
@@ -284,7 +285,9 @@ dialog::backdrop {
 
 .card__icon-button {
   border: 2px solid transparent;
-  inline-size: 50px;
+  padding: 0;
+  inline-size: 41px;
+  block-size: 38px;
 }
 
 .card__icon-button:focus {
